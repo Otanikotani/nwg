@@ -16,9 +16,11 @@
     <properties>
         <spring.version>4.1.1.RELEASE</spring.version>
         <hibernate.version>3.5.6-Final</hibernate.version>
-        <java.source.version>1.7</java.source.version>
-        <java.target.version>1.7</java.target.version>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -102,6 +104,18 @@
   <build>
     <plugins>
         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.4</version>
+            <executions>
+                <execution>
+                    <id>copy-dependencies</id>
+                    <phase>package</phase>
+                    <goals><goal>copy-dependencies</goal></goals>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
             <artifactId>maven-war-plugin</artifactId>
             <version>2.4</version>
             <configuration>
@@ -117,6 +131,12 @@
                 <path>/backend</path>
             </configuration>
         </plugin>
+        <plugin>
+            <groupId>com.heroku.sdk</groupId>
+            <artifactId>heroku-maven-plugin</artifactId>
+            <version>0.5.7</version>
+        </plugin>
+
 
     </plugins>
 
