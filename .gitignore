@@ -1,0 +1,14 @@
+.idea
+target
+.metadata/
+.settings/
+.project
+com/
+org/
+**/.classpath
+**/.project
+**/.settings
+/bin
+**/MANIFEST.MF
+
+**/*.iml
